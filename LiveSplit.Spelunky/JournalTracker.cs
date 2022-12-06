@@ -14,14 +14,8 @@ namespace LiveSplit.Spelunky
     private JournalVisualizer JournalVisualizer;
     private IContainer components;
 
-    public JournalTracker()
-    {
-      Size initialClientSize = JournalTracker.InitialClientSize;
-      double height = (double) initialClientSize.Height;
-      initialClientSize = JournalTracker.InitialClientSize;
-      double width = (double) initialClientSize.Width;
-      // ISSUE: explicit constructor call
-      base.\u002Ector(height / width);
+    public JournalTracker() : base((double)JournalTracker.InitialClientSize.Height / (double)JournalTracker.InitialClientSize.Width)
+        {
       this.JournalVisualizer = new JournalVisualizer();
       this.InitializeComponent();
       MenuUtils.DisableCloseButton((Form) this);

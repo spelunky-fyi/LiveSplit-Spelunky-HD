@@ -14,14 +14,8 @@ namespace LiveSplit.Spelunky
     private CharactersVisualizer CharactersVisualizer;
     private IContainer components;
 
-    public CharactersTracker()
-    {
-      Size initialClientSize = CharactersTracker.InitialClientSize;
-      double height = (double) initialClientSize.Height;
-      initialClientSize = CharactersTracker.InitialClientSize;
-      double width = (double) initialClientSize.Width;
-      // ISSUE: explicit constructor call
-      base.\u002Ector(height / width);
+    public CharactersTracker() : base((double)CharactersTracker.InitialClientSize.Height / (double)CharactersTracker.InitialClientSize.Width)
+        {
       this.CharactersVisualizer = new CharactersVisualizer();
       this.InitializeComponent();
       MenuUtils.DisableCloseButton((Form) this);
