@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C132A509-1A80-42EB-8DC7-E6E881A98B20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>LiveSplit.Spelunky</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>LiveSplit.Spelunky</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutDialog.cs" />
+    <Compile Include="CharactersTracker.cs" />
+    <Compile Include="CharactersVisualizer.cs" />
+    <Compile Include="JournalTracker.cs" />
+    <Compile Include="JournalVisualizer.cs" />
+    <Compile Include="AutoSplitter.cs" />
+    <Compile Include="Component.cs" />
+    <Compile Include="Factory.cs" />
+    <Compile Include="PatchInitializationFailedException.cs" />
+    <Compile Include="IPatch.cs" />
+    <Compile Include="EnabledPatchContainer.cs" />
+    <Compile Include="Kernel32.cs" />
+    <Compile Include="RawProcess.cs" />
+    <Compile Include="SegmentStatusType.cs" />
+    <Compile Include="SegmentStatus.cs" />
+    <Compile Include="ISegment.cs" />
+    <Compile Include="ISegmentFactory.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="SaveChangePatch.cs" />
+    <Compile Include="SpelunkyState.cs" />
+    <Compile Include="SpelunkyLevel.cs" />
+    <Compile Include="TunnelManChapter.cs" />
+    <Compile Include="LobbyType.cs" />
+    <Compile Include="PlaceEntry.cs" />
+    <Compile Include="MonsterEntry.cs" />
+    <Compile Include="ItemEntry.cs" />
+    <Compile Include="TrapEntry.cs" />
+    <Compile Include="SpelunkyCharacter.cs" />
+    <Compile Include="CharactersState.cs" />
+    <Compile Include="JournalState.cs" />
+    <Compile Include="SpelunkyHooks.cs" />
+    <Compile Include="SpelunkySettings.cs" />
+    <Compile Include="XMLSettings.cs" />
+    <Compile Include="StatusWindow.cs" />
+    <Compile Include="Utilities\Forms\MenuUtils.cs" />
+    <Compile Include="Utilities\Forms\DesiredHeightWidthRatioComputer.cs" />
+    <Compile Include="Utilities\Forms\SquareResizableForm.cs" />
+    <Compile Include="SegmentFactories\AllCharactersSegment.cs" />
+    <Compile Include="SegmentFactories\AllCharactersSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\CharSelectSegment.cs" />
+    <Compile Include="SegmentFactories\CharSelectSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\JournalEntryProgressSegment.cs" />
+    <Compile Include="SegmentFactories\JournalEntryProgressSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\OlmecSegment.cs" />
+    <Compile Include="SegmentFactories\OlmecSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\TunnelManSegment.cs" />
+    <Compile Include="SegmentFactories\TunnelManSegmentFactory.cs" />
+    <Compile Include="SegmentFactories\TutorialSegment.cs" />
+    <Compile Include="SegmentFactories\TutorialSegmentFactory.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Categories\AllCharacters.cs" />
+    <Compile Include="Categories\AllJournalEntries.cs" />
+    <Compile Include="Categories\AllShortcuts.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutDialog.resx" />
+    <EmbeddedResource Include="CharactersTracker.resx" />
+    <EmbeddedResource Include="JournalTracker.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="SpelunkySettings.resx" />
+    <EmbeddedResource Include="StatusWindow.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
