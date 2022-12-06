@@ -45,7 +45,10 @@ namespace LiveSplit.Spelunky
     {
       if (this.InvokeRequired)
       {
-        this.BeginInvoke((Delegate) (() => this.SetInfoStatus(text)));
+        this.BeginInvoke(new MethodInvoker(delegate ()
+        {
+            this.SetInfoStatus(text);
+        }));
       }
       else
       {
@@ -63,7 +66,10 @@ namespace LiveSplit.Spelunky
     {
       if (this.InvokeRequired)
       {
-        this.BeginInvoke((Delegate) (() => this.SetErrorStatus(text)));
+        this.BeginInvoke(new MethodInvoker(delegate ()
+        {
+            this.SetErrorStatus(text);
+        }));
       }
       else
       {
@@ -86,7 +92,7 @@ namespace LiveSplit.Spelunky
 
     private void InitializeComponent()
     {
-      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (StatusWindow));
+      ComponentResourceManager resources = new ComponentResourceManager(typeof (StatusWindow));
       this.CurrentRunPrefixLabel = new Label();
       this.StatusPrefixLabel = new Label();
       this.CurrentRunLabel = new Label();
@@ -124,9 +130,9 @@ namespace LiveSplit.Spelunky
       this.Controls.Add((Control) this.StatusPrefixLabel);
       this.Controls.Add((Control) this.CurrentRunPrefixLabel);
       this.FormBorderStyle = FormBorderStyle.FixedDialog;
-      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      this.Icon = (Icon) resources.GetObject("$this.Icon");
       this.MaximizeBox = false;
-      this.Name = nameof (StatusWindow);
+      this.Name = "StatusWindow";
       this.Text = "SpelunkySplitter Activity";
       this.ResumeLayout(false);
       this.PerformLayout();

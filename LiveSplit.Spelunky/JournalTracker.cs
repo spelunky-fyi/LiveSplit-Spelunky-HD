@@ -48,7 +48,7 @@ namespace LiveSplit.Spelunky
       this.BackColor = SystemColors.ActiveCaptionText;
       this.ClientSize = JournalTracker.InitialClientSize;
       this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.Name = nameof (JournalTracker);
+      this.Name = "JournalTracker";
       this.ShowIcon = false;
       this.Text = "Remaining Journal Entries";
       this.ResumeLayout(false);

@@ -140,7 +140,7 @@ label_7:
     public void AssertValid()
     {
       if (this.ProcessHandle == IntPtr.Zero)
-        throw new ObjectDisposedException(nameof (RawProcess));
+        throw new ObjectDisposedException("RawProcess");
       if (this.Process.HasExited)
         throw new Exception("Target process has exited");
     }

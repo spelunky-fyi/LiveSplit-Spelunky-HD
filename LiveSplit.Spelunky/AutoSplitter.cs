@@ -96,11 +96,11 @@ namespace LiveSplit.Spelunky
           this.MaybeCharactersTracker.Show();
         this.MaybeCharactersTracker.Update(this.Hooks);
       }
-      if (((ICollection<ISegment>) state.Run).Count != this.Segments.Length - 1)
+      if (state.Run.Count != this.Segments.Length - 1)
         return new SegmentStatus()
         {
           Type = SegmentStatusType.ERROR,
-          Message = "Expected " + (object) (this.Segments.Length - 1) + " segments, got " + (object) ((ICollection<ISegment>) state.Run).Count + " (correct this before continuing)."
+          Message = "Expected " + (object) (this.Segments.Length - 1) + " segments, got " + state.Run.Count + " (correct this before continuing)."
         };
       if (state.CurrentSplitIndex + 1 >= this.Segments.Length)
         return new SegmentStatus()
@@ -127,15 +127,26 @@ namespace LiveSplit.Spelunky
 
     public void Dispose()
     {
-      if (!this.Hooks.Process.HasExited)
-        this.Patches.RevertAll();
-      this.Hooks.Dispose();
-      if (this.MaybeJournalTracker != null && this.MaybeJournalTracker.IsHandleCreated)
-        this.MaybeJournalTracker.BeginInvoke((Delegate) (() => this.MaybeJournalTracker.Hide()));
-      if (this.MaybeCharactersTracker == null || !this.MaybeCharactersTracker.IsHandleCreated)
-        return;
-      this.MaybeCharactersTracker.BeginInvoke((Delegate) (() => this.MaybeCharactersTracker.Hide()));
-    }
+            if (!this.Hooks.Process.HasExited)
+            {
+                this.Patches.RevertAll();
+            }
+            this.Hooks.Dispose();
+            if (this.MaybeJournalTracker != null && this.MaybeJournalTracker.IsHandleCreated)
+            {
+                this.MaybeJournalTracker.BeginInvoke(new System.Windows.Forms.MethodInvoker(delegate ()
+                {
+                    this.MaybeJournalTracker.Hide();
+                }));
+            }
+            if (this.MaybeCharactersTracker != null && this.MaybeCharactersTracker.IsHandleCreated)
+            {
+                this.MaybeCharactersTracker.BeginInvoke(new System.Windows.Forms.MethodInvoker(delegate ()
+                {
+                    this.MaybeCharactersTracker.Hide();
+                }));
+            }
+        }
 
     private delegate void SplitAction();
   }

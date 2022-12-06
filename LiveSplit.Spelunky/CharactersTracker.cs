@@ -48,7 +48,7 @@ namespace LiveSplit.Spelunky
       this.BackColor = SystemColors.ActiveCaptionText;
       this.ClientSize = CharactersTracker.InitialClientSize;
       this.FormBorderStyle = FormBorderStyle.FixedSingle;
-      this.Name = nameof (CharactersTracker);
+      this.Name = "CharactersTracker";
       this.ShowIcon = false;
       this.Text = "Remaining Locked Characters";
       this.ResumeLayout(false);

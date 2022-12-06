@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build"
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C132A509-1A80-42EB-8DC7-E6E881A98B20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>LiveSplit.Spelunky</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <ApplicationVersion>1.0.0.0</ApplicationVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>LiveSplit.Spelunky</RootNamespace>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,11 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutDialog.cs" />
-    <Compile Include="CharactersTracker.cs" />
-    <Compile Include="CharactersVisualizer.cs" />
-    <Compile Include="JournalTracker.cs" />
-    <Compile Include="JournalVisualizer.cs" />
+    <Compile Include="AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharactersTracker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CharactersVisualizer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="JournalTracker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JournalVisualizer.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="AutoSplitter.cs" />
     <Compile Include="Component.cs" />
     <Compile Include="Factory.cs" />
@@ -70,12 +80,18 @@
     <Compile Include="CharactersState.cs" />
     <Compile Include="JournalState.cs" />
     <Compile Include="SpelunkyHooks.cs" />
-    <Compile Include="SpelunkySettings.cs" />
+    <Compile Include="SpelunkySettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="XMLSettings.cs" />
-    <Compile Include="StatusWindow.cs" />
+    <Compile Include="StatusWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilities\Forms\MenuUtils.cs" />
     <Compile Include="Utilities\Forms\DesiredHeightWidthRatioComputer.cs" />
-    <Compile Include="Utilities\Forms\SquareResizableForm.cs" />
+    <Compile Include="Utilities\Forms\SquareResizableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SegmentFactories\AllCharactersSegment.cs" />
     <Compile Include="SegmentFactories\AllCharactersSegmentFactory.cs" />
     <Compile Include="SegmentFactories\CharSelectSegment.cs" />
@@ -101,6 +117,20 @@
     <EmbeddedResource Include="Properties\Resources.resx" />
     <EmbeddedResource Include="SpelunkySettings.resx" />
     <EmbeddedResource Include="StatusWindow.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LiveSplit\LiveSplit\LiveSplit\LiveSplit.Core\LiveSplit.Core.csproj">
+      <Project>{6de847db-20a3-4848-aeee-1b4364aecdfb}</Project>
+      <Name>LiveSplit.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\LiveSplit\LiveSplit\LiveSplit\LiveSplit.View\LiveSplit.View.csproj">
+      <Project>{f8cf1482-0687-44f3-aba1-967e10c3bb96}</Project>
+      <Name>LiveSplit.View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\LiveSplit\LiveSplit\LiveSplit\UpdateManager\UpdateManager.csproj">
+      <Project>{56dea3a0-2eb7-493b-b50f-a5e3aa8ae52a}</Project>
+      <Name>UpdateManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,7 +18,7 @@ namespace LiveSplit.Spelunky
 
     public string GameSavePath => this.DeviatedGameSavePath ?? this.GameDirectoryPath + "\\Data\\spelunky_save.sav";
 
-    private int Game => this.Process.ReadInt32(this.Process.BaseAddress + 1279156);
+    private int Game => this.Process.ReadInt32(this.Process.BaseAddress + 1393772);
 
     private int Gfx => this.Process.ReadInt32(this.Game + 76);
 

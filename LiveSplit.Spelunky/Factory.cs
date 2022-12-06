@@ -15,11 +15,11 @@ namespace LiveSplit.Spelunky
 
     public string UpdateName => this.ComponentName;
 
-    public string XMLURL => "http://sashavol.com/frozlunky/autosplitter/update.LiveSplit.Spelunky.xml";
+    public string XMLURL => "";
 
-    public string UpdateURL => "http://sashavol.com/frozlunky/autosplitter/";
+    public string UpdateURL => "";
 
-    public Version Version => Version.Parse("1.3.5");
+    public Version Version => Version.Parse("2.0.0");
 
     public string Description => "An interactive Spelunky auto splitter.";
 
